@@ -1,0 +1,59 @@
+<div class="crm-container">
+  <h1 crm-page-title>{{ts('Current Membership')}}</h1>
+  <div crm-ui-debug="currentMembers"></div>
+
+  <form name="myForm" crm-ui-id-scope>
+    <div crm-ui-accordion="{title: ts('Membership Start Date (Filter)')}">
+      <div class="crm-block" style="padding: 20px;">
+        <div class="crm-group">
+          <div id="customDateRange" style="margin-bottom: 20px">
+            <div style="display: inline-block;">
+              <label for="">From Date</label>
+              <input crm-ui-datepicker="{time: false}" ng-model="fromDate"/>
+            </div>
+            <div style="display: inline-block;">
+              <label for="">To Date</label>
+              <input crm-ui-datepicker="{time: false}" ng-model="toDate"/>
+            </div>
+          </div>
+          <div>
+            <button ng-click="search(fromDate, toDate)">{{ts('Search')}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div crm-ui-accordion="{title: ts('Results (%1)', {1: currentMembers.length ? currentMembers.length : 0})}">
+    <div class="crm-block">
+      <table ng-if="currentMembers">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Member Since</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="member in currentMembers">
+            <td>{{$index + 1}}</td>
+            <td>{{member.display_name}}</td>
+            <td>{{member.membership.membership_name}}</td>
+            <td>{{member.membership.join_date}}</td>
+            <td>{{member.membership.start_date}}</td>
+            <td>{{member.membership.end_date}}</td>
+            <td>{{member.membership.source}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div ng-if="!currentMembers" style="padding: 20px;">
+        <p>Sorry, No matches found for: Membership Status In Current</p>
+      </div>
+    </div>
+  </div>
+
+</div>

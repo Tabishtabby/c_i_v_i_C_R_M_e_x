@@ -1,0 +1,40 @@
+/* Add any CSS rules for Angular module "currentmembersearch" */
+.mighty-picker-calendar__day {
+  cursor: pointer!important;
+  position: relative!important;
+  color: #333!important;
+}
+.mighty-picker-calendar__day--disabled {
+  color: #aaa!important;
+  cursor: auto!important;
+}
+.mighty-picker-calendar__day--in-range {
+  color: #347ab3!important;
+  font-weight: bold!important;
+}
+.mighty-picker-calendar__day-marker-wrapper {
+  position: relative!important;
+}
+.mighty-picker-calendar__day-marker {
+  display: none!important;
+  position: absolute!important;
+  background: #fff!important;
+  padding: 4px 6px!important;
+  border: 1px solid #aaa!important;
+  bottom: 16px!important;
+}
+.mighty-picker-calendar__day--marked:hover .mighty-picker-calendar__day-marker {
+  display: block!important;
+}
+.mighty-picker-calendar__day--marked {
+  color: orange!important;
+  font-weight: bold!important;
+}
+.mighty-picker-calendar__day--selected {
+  color: #3b5!important;
+  font-weight: bold!important;
+}
+.mighty-picker__month {
+  display: inline-block!important;
+  margin: 0 6px!important;
+}
